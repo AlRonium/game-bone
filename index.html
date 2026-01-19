@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Кости - Премиум Симулятор</title>
+    <meta name="description" content="Реалистичный симулятор игральных костей с 3D графикой и физикой.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <canvas id="canvas-3d"></canvas>
+        
+        <div class="ui-container">
+            <header>
+                <h1>Dice<span>Master</span> 3D</h1>
+            </header>
+
+            <div class="game-controls">
+                <div class="stat-card" id="total-score">
+                    <span class="label">Результат</span>
+                    <span class="value">0</span>
+                </div>
+                
+                <button id="roll-button" class="roll-btn">
+                    <span class="btn-text">БРОСИТЬ</span>
+                    <div class="btn-glow"></div>
+                </button>
+
+                <div class="controls-group">
+                    <button class="icon-btn" id="reset-btn" title="Сбросить">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                    </button>
+                    <button class="icon-btn" id="settings-btn" title="Настройки">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="history-panel">
+                <h3>История</h3>
+                <div id="history-list" class="history-list">
+                    <!-- Будет заполняться из JS -->
+                </div>
+            </div>
+        </div>
+
+        <div id="settings-modal" class="modal">
+            <div class="modal-content">
+                <h2>Настройки</h2>
+                <div class="setting-item">
+                    <label>Количество костей</label>
+                    <div class="number-input">
+                        <button id="dec-dice">-</button>
+                        <span id="dice-count">1</span>
+                        <button id="inc-dice">+</button>
+                    </div>
+                </div>
+                <div class="setting-item">
+                    <label>Цвет костей</label>
+                    <div class="color-picker">
+                        <div class="color-option active" data-color="#ff4757" style="background: #ff4757;"></div>
+                        <div class="color-option" data-color="#2ed573" style="background: #2ed573;"></div>
+                        <div class="color-option" data-color="#1e90ff" style="background: #1e90ff;"></div>
+                        <div class="color-option" data-color="#ffa502" style="background: #ffa502;"></div>
+                        <div class="color-option" data-color="#ffffff" style="background: #ffffff;"></div>
+                    </div>
+                </div>
+                <button id="close-settings" class="primary-btn">Готово</button>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+</body>
+</html>
